@@ -2,7 +2,8 @@
 
 module Pixel_Mux (
     input [15:0] filtered_data_1, input [15:0] filtered_data_2,
-    input [15:0] filtered_data_3, input clk, 
+    input [15:0] filtered_data_3, input [15:0] filtered_data_circle,
+    input clk, 
     output reg [15:0] final_filtered_data);
     
     always @ (posedge clk) begin
@@ -12,6 +13,8 @@ module Pixel_Mux (
             final_filtered_data <= filtered_data_2;
         end else if (filtered_data_3 !=16'h0000) begin
             final_filtered_data <= filtered_data_3;
+        end else if (filtered_data_circle != 16'h0000) begin
+            final_filtered_data <= filtered_data_circle;
         end else begin
             final_filtered_data <= 16'h0000;
         end
