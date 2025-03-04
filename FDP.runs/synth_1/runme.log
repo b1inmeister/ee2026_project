@@ -14,35 +14,35 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7216 
+INFO: Helper process launched with PID 1692 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 356.062 ; gain = 99.352
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 357.461 ; gain = 100.559
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'Top_Student' [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
-INFO: [Synth 8-6157] synthesizing module 'Clock_Divider' [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Clock_Divider.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Top_Student' [D:/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
+INFO: [Synth 8-6157] synthesizing module 'Clock_Divider' [D:/FDP/FDP.srcs/sources_1/new/Clock_Divider.v:3]
 	Parameter DIV_VALUE bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'Clock_Divider' (1#1) [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Clock_Divider.v:3]
-INFO: [Synth 8-6157] synthesizing module 'Oled_Filter' [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Clock_Divider' (1#1) [D:/FDP/FDP.srcs/sources_1/new/Clock_Divider.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Oled_Filter' [D:/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
 	Parameter COL_START bound to: 42 - type: integer 
 	Parameter COL_END bound to: 54 - type: integer 
 	Parameter ROW_START bound to: 3 - type: integer 
 	Parameter ROW_END bound to: 15 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'Oled_Filter' (2#1) [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
-INFO: [Synth 8-6157] synthesizing module 'Oled_Filter__parameterized0' [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Oled_Filter' (2#1) [D:/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Oled_Filter__parameterized0' [D:/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
 	Parameter COL_START bound to: 42 - type: integer 
 	Parameter COL_END bound to: 54 - type: integer 
 	Parameter ROW_START bound to: 18 - type: integer 
 	Parameter ROW_END bound to: 30 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'Oled_Filter__parameterized0' (2#1) [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
-INFO: [Synth 8-6157] synthesizing module 'Oled_Filter__parameterized1' [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Oled_Filter__parameterized0' (2#1) [D:/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Oled_Filter__parameterized1' [D:/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
 	Parameter COL_START bound to: 42 - type: integer 
 	Parameter COL_END bound to: 54 - type: integer 
 	Parameter ROW_START bound to: 33 - type: integer 
 	Parameter ROW_END bound to: 45 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'Oled_Filter__parameterized1' (2#1) [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
-INFO: [Synth 8-6157] synthesizing module 'Pixel_Mux' [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Pixel_Mux.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'Pixel_Mux' (3#1) [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Pixel_Mux.v:3]
-INFO: [Synth 8-6157] synthesizing module 'Oled_Display' [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
+INFO: [Synth 8-6155] done synthesizing module 'Oled_Filter__parameterized1' (2#1) [D:/FDP/FDP.srcs/sources_1/new/Oled_Filter.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Pixel_Mux' [D:/FDP/FDP.srcs/sources_1/new/Pixel_Mux.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Pixel_Mux' (3#1) [D:/FDP/FDP.srcs/sources_1/new/Pixel_Mux.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Oled_Display' [D:/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
 	Parameter Width bound to: 96 - type: integer 
 	Parameter Height bound to: 64 - type: integer 
 	Parameter PixelCount bound to: 6144 - type: integer 
@@ -93,14 +93,14 @@ INFO: [Synth 8-6157] synthesizing module 'Oled_Display' [C:/Users/jlmk2/Document
 	Parameter SendPixel bound to: 5'b10000 
 	Parameter SpiCommandMaxWidth bound to: 40 - type: integer 
 	Parameter SpiCommandBitCountWidth bound to: 6 - type: integer 
-INFO: [Synth 8-226] default block is never used [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:123]
-INFO: [Synth 8-226] default block is never used [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:198]
-WARNING: [Synth 8-693] zero replication count - replication ignored [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:346]
-INFO: [Synth 8-6155] done synthesizing module 'Oled_Display' (4#1) [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
-INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (5#1) [C:/Users/jlmk2/Documents/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
+INFO: [Synth 8-226] default block is never used [D:/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:123]
+INFO: [Synth 8-226] default block is never used [D:/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:198]
+WARNING: [Synth 8-693] zero replication count - replication ignored [D:/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:346]
+INFO: [Synth 8-6155] done synthesizing module 'Oled_Display' (4#1) [D:/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
+INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (5#1) [D:/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port Jx[2]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 411.316 ; gain = 154.605
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 412.344 ; gain = 155.441
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -113,41 +113,41 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 411.316 ; gain = 154.605
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 412.344 ; gain = 155.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 411.316 ; gain = 154.605
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 412.344 ; gain = 155.441
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/jlmk2/Documents/FDP/FDP.srcs/constrs_1/new/Basys3_Master.xdc]
-Finished Parsing XDC File [C:/Users/jlmk2/Documents/FDP/FDP.srcs/constrs_1/new/Basys3_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/jlmk2/Documents/FDP/FDP.srcs/constrs_1/new/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_Student_propImpl.xdc].
+Parsing XDC File [D:/FDP/FDP.srcs/constrs_1/new/Basys3_Master.xdc]
+Finished Parsing XDC File [D:/FDP/FDP.srcs/constrs_1/new/Basys3_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/FDP/FDP.srcs/constrs_1/new/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_Student_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Top_Student_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 723.488 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 723.387 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 723.488 ; gain = 466.777
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 723.387 ; gain = 466.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 723.488 ; gain = 466.777
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 723.387 ; gain = 466.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 723.488 ; gain = 466.777
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 723.387 ; gain = 466.484
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "CLK_DIV" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Oled_Display'
@@ -192,7 +192,7 @@ INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'Oled_Display'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 723.488 ; gain = 466.777
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 723.387 ; gain = 466.484
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -370,7 +370,7 @@ INFO: [Synth 8-3886] merging instance 'mux/final_filtered_data_reg[12]' (FD) to 
 INFO: [Synth 8-3886] merging instance 'mux/final_filtered_data_reg[13]' (FD) to 'mux/final_filtered_data_reg[14]'
 INFO: [Synth 8-3886] merging instance 'mux/final_filtered_data_reg[14]' (FD) to 'mux/final_filtered_data_reg[15]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 723.488 ; gain = 466.777
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 723.387 ; gain = 466.484
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -382,13 +382,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 739.031 ; gain = 482.320
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 737.715 ; gain = 480.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 759.457 ; gain = 502.746
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 758.145 ; gain = 501.242
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -400,7 +400,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -424,7 +424,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:39 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -437,7 +437,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:39 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -449,25 +449,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:40 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:40 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:40 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:40 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -513,11 +513,11 @@ Report Instance Areas:
 |7     |  oled_filter3 |Oled_Filter__parameterized1 |     1|
 +------+---------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:40 . Memory (MB): peak = 769.188 ; gain = 512.477
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 769.188 ; gain = 200.305
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 769.188 ; gain = 512.477
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 768.480 ; gain = 200.535
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 768.480 ; gain = 511.578
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 68 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -531,9 +531,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 97 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:43 . Memory (MB): peak = 769.188 ; gain = 525.379
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 768.480 ; gain = 524.254
 WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/jlmk2/Documents/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'D:/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_Student_utilization_synth.rpt -pb Top_Student_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 769.188 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Mar  4 11:31:00 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 768.480 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Mar  4 12:13:07 2025...

@@ -1,0 +1,24 @@
+# Ignore Vivado-generated files
+*.cache/
+*.hw/
+*.hwdef/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.log
+*.jou
+*.str
+*.backup.log
+*.webtalk/
+*.tmp
+
+# Ignore Vivado auto-generated files
+*.dcp
+*.str
+*.ltx
+*.wdb
+*.edf
+*.bin
+*.mmi
+*.tcl
+*.xci
