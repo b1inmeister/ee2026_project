@@ -5,6 +5,7 @@
 *.ip_user_files/
 *.runs/
 *.sim/
+*.xpr
 *.log
 *.jou
 *.str
