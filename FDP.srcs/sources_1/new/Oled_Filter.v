@@ -6,7 +6,7 @@ module Oled_Filter #(
     parameter ROW_START = 0,
     parameter ROW_END = 63
     )(
-    input clk6p25m, input [12:0] pixel_index, input [15:0] oled_data,
+    input clk, input [12:0] pixel_index, input [15:0] oled_data,
     output reg [15:0] filtered_data);
     
     wire [6:0] column;
@@ -15,7 +15,7 @@ module Oled_Filter #(
     assign column = pixel_index % 96;
     assign row = pixel_index / 96;
     
-    always @ (posedge clk6p25m) begin
+    always @ (posedge clk) begin
         if ((column >= COL_START && column <= COL_END) && 
             (row >= ROW_START && row <= ROW_END)) begin
             filtered_data <= oled_data;

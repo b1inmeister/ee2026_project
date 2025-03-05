@@ -12,67 +12,146 @@
 
 
 module Top_Student (
-    input clk, input reset,
-    input button_top, input button_middle, button_bottom,
+    input clk, input [15:0] sw,
+    input btnC, input btnU, input btnD, 
+    //input btnL, input btnR,
+    output [15:0] led, 
+    //output [6:0] seg, output dp, output [3:0] an,
     output frame_begin, output sending_pixels, output sample_pixel,
-    output [7:0] Jx);
+    output [7:0] JC);
     
-    wire [12:0] pixel_index;
-    wire [15:0] filtered_data_square1, filtered_data_square2, filtered_data_square3;
-    wire [15:0] filtered_data_circle;
-    wire [15:0] final_filtered_data;
-    
-    wire [15:0] current_color1, current_color2, current_color3;
+    reg reset = 1'b0;
     
     wire clk6p25m;
     Clock_Divider #(16) clk_divide(clk, clk6p25m);
     
-    Color_Control color_control1 (
-        clk6p25m, button_top, current_color1);
-        
-    Color_Control color_control2 (
-        clk6p25m, button_middle, current_color2);
+    wire [12:0] pixel_index;
     
-    Color_Control color_control3 (
-        clk6p25m, button_bottom, current_color3);
-     
+    /*
+     * TASK 4.B
+     */
+    wire [15:0] filtered_data_top, filtered_data_middle, filtered_data_bottom;
+    wire [15:0] filtered_data_circle;
+    wire [15:0] final_filtered_data_4b;
+    
+    wire [15:0] current_color_top, current_color_middle, current_color_bottom;
+    wire [15:0] current_color_circle;
+    
+    wire [2:0] color_state_top, color_state_middle, color_state_bottom;
+    
+    // top square
+    Color_Control color_top_4b (
+        clk, btnU, color_state_top, current_color_top);
+        
     Oled_Filter #(
         .COL_START(42), 
         .COL_END(54),
         .ROW_START(3),
         .ROW_END(15)
-        ) oled_square1 (
-        clk6p25m, pixel_index, current_color1, filtered_data_square1);  
-    
+        ) top_square_4b (
+        clk, pixel_index, 
+        current_color_top, filtered_data_top); 
+                
+    // middle square    
+    Color_Control color_middle_4b (
+        clk, btnC, color_state_middle, current_color_middle);
+   
     Oled_Filter #(
         .COL_START(42),
         .COL_END(54),
         .ROW_START(18),
         .ROW_END(30)
-        ) oled_square2 (
-        clk6p25m, pixel_index, current_color2, filtered_data_square2);
+        ) middle_square_4b (
+        clk, pixel_index, 
+        current_color_middle, filtered_data_middle);   
+     
+    // bottom square   
+    Color_Control color_bottom_4b (
+        clk, btnD, color_state_bottom, current_color_bottom);
         
     Oled_Filter #(
         .COL_START(42),
         .COL_END(54),
         .ROW_START(33),
         .ROW_END(45)
-        ) oled_square3 (
-        clk6p25m, pixel_index, current_color3, filtered_data_square3);
-        
+        ) bottom_square_4b (
+        clk, pixel_index, 
+        current_color_bottom, filtered_data_bottom);
+    
+    // circle    
+    Color_Control_Circle color_circle_4b (
+        clk, color_state_top, color_state_middle, 
+        color_state_bottom, current_color_circle);
+    
     Oled_Filter_Circle #(
         .CENTER_X(48),
         .CENTER_Y(54),
         .DIAMETER(14)
-        ) oled_circle (
-        clk6p25m, pixel_index, current_color3, filtered_data_circle);
-        
-    Pixel_Mux mux (
-        filtered_data_square1, filtered_data_square2, filtered_data_square3, filtered_data_circle, 
-        clk, final_filtered_data); 
-        
+        ) circle_4b (
+        clk, pixel_index, current_color_circle, filtered_data_circle);
+    
+    // display squares + circle on OLED   
+    Pixel_Mux pixel_mux_4b (
+        filtered_data_top, filtered_data_middle, 
+        filtered_data_bottom, filtered_data_circle, 
+        clk, final_filtered_data_4b);
+  
+    /*
+     * TASK 4.E1
+     */  
+    assign led = sw; 
+     
+    /*
+     * TASK 4.E2
+     */
+    reg [15:0] current_color_default = 16'hFFFF;
+    
+    wire [15:0] filtered_data_left1, filtered_data_right1;
+    wire [15:0] final_filtered_data_default;
+    
+    Oled_Filter #(
+        .COL_START(41),
+        .COL_END(45),
+        .ROW_START(5),
+        .ROW_END(58)
+        ) left_one (
+        clk, pixel_index, 
+        current_color_default, filtered_data_left1);
+    
+    Oled_Filter #(
+        .COL_START(88),
+        .COL_END(92),
+        .ROW_START(5),
+        .ROW_END(58)
+        ) right_one (
+        clk, pixel_index, 
+        current_color_default, filtered_data_right1);
+
+     Team_Number_Mux team_number_mux (
+        filtered_data_left1, filtered_data_right1, 
+        clk, final_filtered_data_default);
+    
+    /*
+     * task 4.E3
+     */
+     
+     
+    
+  
+    /*
+     * TASK 4.E4
+     */
+     
+     /*
+     wire [15:0] oled_data;
+     
+     Oled_Data_Mux oled_data_mux (
+        sw, final_filtered_data_4b, final_filtered_data_default, oled_data);
+        */
+     
+     
     Oled_Display oled_display (
         clk6p25m, reset, frame_begin, sending_pixels, sample_pixel, pixel_index, 
-        final_filtered_data, Jx[0], Jx[1], Jx[3], Jx[4], Jx[5], Jx[6], Jx[7]);
-   
+        final_filtered_data_default, JC[0], JC[1], JC[3], JC[4], JC[5], JC[6], JC[7]);
+
 endmodule
