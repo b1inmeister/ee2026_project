@@ -16,14 +16,14 @@ module Top_Student (
     input btnC, input btnU, input btnD, 
     //input btnL, input btnR,
     output [15:0] led, 
-    //output [6:0] seg, output dp, output [3:0] an,
+    output [6:0] seg, output dp, output [3:0] an,
     output frame_begin, output sending_pixels, output sample_pixel,
     output [7:0] JC);
     
     reg reset = 1'b0;
     
     wire clk6p25m;
-    Clock_Divider #(16) clk_divide(clk, clk6p25m);
+    Clock_Divider #(16) clk_divide_6p25m (clk, clk6p25m);
     
     wire [12:0] pixel_index;
     
@@ -110,7 +110,7 @@ module Top_Student (
     wire [15:0] final_filtered_data_default;
     
     Oled_Filter #(
-        .COL_START(41),
+        .COL_START(39),
         .COL_END(45),
         .ROW_START(5),
         .ROW_END(58)
@@ -119,7 +119,7 @@ module Top_Student (
         current_color_default, filtered_data_left1);
     
     Oled_Filter #(
-        .COL_START(88),
+        .COL_START(86),
         .COL_END(92),
         .ROW_START(5),
         .ROW_END(58)
@@ -134,9 +134,11 @@ module Top_Student (
     /*
      * task 4.E3
      */
+     wire clk_segment;
+     Clock_Divider #(100_000) clk_divide_segment (clk, clk_segment);
      
-     
-    
+     Seven_Segment seven_segment (
+        clk_segment, seg, dp, an);
   
     /*
      * TASK 4.E4

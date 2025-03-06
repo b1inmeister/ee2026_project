@@ -23,11 +23,11 @@ module Color_Control (
     reg debounce_active;
     
     // clock divider
-    reg [12:0] clk_divider;
+    reg [16:0] clk_divider;
     reg tick_1ms;
     
     always @ (posedge clk) begin;
-        if (clk_divider == 6250) begin
+        if (clk_divider == 10000) begin
             clk_divider <= 0;
             tick_1ms <= 1;
         end else begin
