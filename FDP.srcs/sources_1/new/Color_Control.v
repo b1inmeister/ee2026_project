@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module Color_Control (
-    input clk, input button,
+    input clk, input enable, input button,
     output reg [2:0] color_state,
     output reg [15:0] current_color);
     
@@ -23,16 +23,16 @@ module Color_Control (
     reg debounce_active;
     
     // clock divider
-    reg [16:0] clk_divider;
-    reg tick_1ms;
+    reg [13:0] clk_divider;
+    reg tick;
     
     always @ (posedge clk) begin;
         if (clk_divider == 10000) begin
             clk_divider <= 0;
-            tick_1ms <= 1;
+            tick <= 1;
         end else begin
             clk_divider <= clk_divider + 1;
-            tick_1ms <= 0;
+            tick <= 0;
         end
     end
     
@@ -43,7 +43,7 @@ module Color_Control (
                 debounce_active <= 1;
                 debounce_counter <= 0;
             end
-        end else if (tick_1ms && debounce_active) begin
+        end else if (tick && debounce_active) begin
             if (debounce_counter < 200) begin
                 debounce_counter <= debounce_counter + 1;
             end else begin
@@ -55,7 +55,9 @@ module Color_Control (
      
      // colour state logic
      always @ (posedge clk) begin
-        if (button_pressed && !debounce_active) begin
+        if (!enable) begin
+            color_state <= WHITE;
+        end else if (button_pressed && !debounce_active) begin
             case (color_state)
                 WHITE: color_state <= RED;
                 RED: color_state <= GREEN;

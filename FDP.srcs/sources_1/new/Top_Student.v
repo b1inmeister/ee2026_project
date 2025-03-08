@@ -10,11 +10,9 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module Top_Student (
     input clk, input [15:0] sw,
-    input btnC, input btnU, input btnD, 
-    //input btnL, input btnR,
+    input btnC, input btnU, input btnD, input btnL, input btnR,
     output [15:0] led, 
     output [6:0] seg, output dp, output [3:0] an,
     output frame_begin, output sending_pixels, output sample_pixel,
@@ -26,134 +24,50 @@ module Top_Student (
     Clock_Divider #(16) clk_divide_6p25m (clk, clk6p25m);
     
     wire [12:0] pixel_index;
-    
-    /*
-     * TASK 4.B
-     */
-    wire [15:0] filtered_data_top, filtered_data_middle, filtered_data_bottom;
-    wire [15:0] filtered_data_circle;
-    wire [15:0] final_filtered_data_4b;
-    
-    wire [15:0] current_color_top, current_color_middle, current_color_bottom;
-    wire [15:0] current_color_circle;
-    
-    wire [2:0] color_state_top, color_state_middle, color_state_bottom;
-    
-    // top square
-    Color_Control color_top_4b (
-        clk, btnU, color_state_top, current_color_top);
-        
-    Oled_Filter #(
-        .COL_START(42), 
-        .COL_END(54),
-        .ROW_START(3),
-        .ROW_END(15)
-        ) top_square_4b (
-        clk, pixel_index, 
-        current_color_top, filtered_data_top); 
-                
-    // middle square    
-    Color_Control color_middle_4b (
-        clk, btnC, color_state_middle, current_color_middle);
-   
-    Oled_Filter #(
-        .COL_START(42),
-        .COL_END(54),
-        .ROW_START(18),
-        .ROW_END(30)
-        ) middle_square_4b (
-        clk, pixel_index, 
-        current_color_middle, filtered_data_middle);   
-     
-    // bottom square   
-    Color_Control color_bottom_4b (
-        clk, btnD, color_state_bottom, current_color_bottom);
-        
-    Oled_Filter #(
-        .COL_START(42),
-        .COL_END(54),
-        .ROW_START(33),
-        .ROW_END(45)
-        ) bottom_square_4b (
-        clk, pixel_index, 
-        current_color_bottom, filtered_data_bottom);
-    
-    // circle    
-    Color_Control_Circle color_circle_4b (
-        clk, color_state_top, color_state_middle, 
-        color_state_bottom, current_color_circle);
-    
-    Oled_Filter_Circle #(
-        .CENTER_X(48),
-        .CENTER_Y(54),
-        .DIAMETER(14)
-        ) circle_4b (
-        clk, pixel_index, current_color_circle, filtered_data_circle);
-    
-    // display squares + circle on OLED   
-    Pixel_Mux pixel_mux_4b (
-        filtered_data_top, filtered_data_middle, 
-        filtered_data_bottom, filtered_data_circle, 
-        clk, final_filtered_data_4b);
-  
-    /*
-     * TASK 4.E1
-     */  
-    assign led = sw; 
-     
-    /*
-     * TASK 4.E2
-     */
-    reg [15:0] current_color_default = 16'hFFFF;
-    
-    wire [15:0] filtered_data_left1, filtered_data_right1;
-    wire [15:0] final_filtered_data_default;
-    
-    Oled_Filter #(
-        .COL_START(39),
-        .COL_END(45),
-        .ROW_START(5),
-        .ROW_END(58)
-        ) left_one (
-        clk, pixel_index, 
-        current_color_default, filtered_data_left1);
-    
-    Oled_Filter #(
-        .COL_START(86),
-        .COL_END(92),
-        .ROW_START(5),
-        .ROW_END(58)
-        ) right_one (
-        clk, pixel_index, 
-        current_color_default, filtered_data_right1);
+    wire [15:0] oled_data;
+    wire [15:0] final_data_4a, final_data_4b, final_data_4c, final_data_4d, final_data_default;
+    wire enable_4a, enable_4b, enable_4c, enable_4d;
 
-     Team_Number_Mux team_number_mux (
-        filtered_data_left1, filtered_data_right1, 
-        clk, final_filtered_data_default);
+    // TASK 4.A 
+    Task_4a task_4a (
+        clk, clk6p25m, enable_4a, btnC, btnU, btnD, pixel_index,
+        final_data_4a);
+
+    // TASK 4.B
+    Task_4b task_4b (
+        clk, enable_4b, btnU, btnC, btnD, pixel_index, 
+        final_data_4b);
+        
+    // TASK 4.C
+    assign final_data_4c = reset;
+
+    // TASK 4.D
+    Task_4d task_4d (
+        clk6p25m, enable_4d, btnU, btnD, btnL, btnR, pixel_index,
+        final_data_4d);
+
+    // TASK 4.E1 AND 4.E5
+    Led_Controller led_controller (
+        clk, sw, led);
+     
+    // TASK 4.E2
+    Task_4e2 default_display (
+        clk, pixel_index, final_data_default); 
     
-    /*
-     * task 4.E3
-     */
-     wire clk_segment;
-     Clock_Divider #(100_000) clk_divide_segment (clk, clk_segment);
-     
-     Seven_Segment seven_segment (
-        clk_segment, seg, dp, an);
+    // TASK 4.E3
+    Task_4e3 seven_segment (
+        clk, seg, dp, an);
   
-    /*
-     * TASK 4.E4
-     */
-     
-     /*
-     wire [15:0] oled_data;
-     
-     Oled_Data_Mux oled_data_mux (
-        sw, final_filtered_data_4b, final_filtered_data_default, oled_data);
-        */
-     
-     
-    Oled_Display oled_display (
+    // TASK 4.E4
+    Oled_Data_Mux oled_data_mux (
+       clk, sw, 
+       final_data_4a, final_data_4b, final_data_4c, final_data_4d, final_data_default, 
+       enable_4a, enable_4b, enable_4c, enable_4d,
+       oled_data);
+
+     // OLED DISPLAY
+     Oled_Display oled_display (
         clk6p25m, reset, frame_begin, sending_pixels, sample_pixel, pixel_index, 
-        final_filtered_data_default, JC[0], JC[1], JC[3], JC[4], JC[5], JC[6], JC[7]);
+        oled_data, JC[0], JC[1], JC[3], JC[4], JC[5], JC[6], JC[7]);
 
 endmodule
