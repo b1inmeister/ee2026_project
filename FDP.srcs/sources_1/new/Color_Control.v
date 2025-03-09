@@ -79,6 +79,7 @@ module Color_Control (
             BLUE: current_color = 16'h001F;
             ORANGE: current_color = 16'hFC40;
             BLACK: current_color = 16'h0000;
+            default: current_color = 16'h0000;
         endcase
      end
      

@@ -20,6 +20,7 @@ module Seven_Segment (
             2'b01: begin seg = seg_1; dp = 1'b0; an = 4'b1011; end
             2'b10: begin seg = seg_1; dp = 1'b1; an = 4'b1101; end
             2'b11: begin seg = seg_1; dp = 1'b1; an = 4'b1110; end
+            default: begin seg = 7'b0; dp = 1'b0; an = 4'b1111; end
         endcase
     end
     

@@ -26,24 +26,26 @@ module Top_Student (
     wire [12:0] pixel_index;
     wire [15:0] oled_data;
     wire [15:0] final_data_4a, final_data_4b, final_data_4c, final_data_4d, final_data_default;
-    wire enable_4a, enable_4b, enable_4c, enable_4d;
+    wire enable;
 
     // TASK 4.A 
     Task_4a task_4a (
-        clk, clk6p25m, enable_4a, btnC, btnU, btnD, pixel_index,
+        clk, clk6p25m, enable, btnC, btnU, btnD, pixel_index,
         final_data_4a);
 
     // TASK 4.B
     Task_4b task_4b (
-        clk, enable_4b, btnU, btnC, btnD, pixel_index, 
+        clk, enable, btnU, btnC, btnD, pixel_index, 
         final_data_4b);
         
     // TASK 4.C
-    assign final_data_4c = reset;
+    Task_4c task_4c (
+        clk, clk6p25m, enable, btnC, pixel_index, 
+        final_data_4c); 
 
     // TASK 4.D
     Task_4d task_4d (
-        clk6p25m, enable_4d, btnU, btnD, btnL, btnR, pixel_index,
+        clk6p25m, enable, btnU, btnD, btnL, btnR, pixel_index,
         final_data_4d);
 
     // TASK 4.E1 AND 4.E5
@@ -58,12 +60,11 @@ module Top_Student (
     Task_4e3 seven_segment (
         clk, seg, dp, an);
   
-    // TASK 4.E4
+    // TASK 4.E4 AND 4.E6
     Oled_Data_Mux oled_data_mux (
        clk, sw, 
        final_data_4a, final_data_4b, final_data_4c, final_data_4d, final_data_default, 
-       enable_4a, enable_4b, enable_4c, enable_4d,
-       oled_data);
+       enable, oled_data);
 
      // OLED DISPLAY
      Oled_Display oled_display (

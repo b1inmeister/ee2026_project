@@ -32,6 +32,7 @@ module Color_Control_Circle (
            RED: current_color_circle = 16'hF800;
            ORANGE: current_color_circle = 16'hFC40;
            BLACK: current_color_circle = 16'h0000;
+           default: current_color_circle = 16'h0000;
         endcase
     end
 
